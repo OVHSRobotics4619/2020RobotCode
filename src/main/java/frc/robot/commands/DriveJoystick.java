@@ -3,6 +3,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.DriveBase;
 import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 
 public class DriveJoystick extends CommandBase {
     
@@ -26,7 +27,8 @@ public class DriveJoystick extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        driveBase.arcadeDrive(driveForward.getAsDouble(), driveRotate.getAsDouble());
+        double forward = -driveForward.getAsDouble();
+        driveBase.arcadeDrive(forward, driveRotate.getAsDouble());
     }
 
     // Called once the command ends or is interrupted.

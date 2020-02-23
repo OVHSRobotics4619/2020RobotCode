@@ -10,6 +10,7 @@ public class ArticulateScissorLift extends CommandBase {
     
     private final ScissorLift scissorSubsystem;
     private final DoubleSupplier move;
+    private final double margin = 0.1; 
 
    /**
    * Creates a new ExampleCommand.
@@ -29,9 +30,9 @@ public class ArticulateScissorLift extends CommandBase {
 
     @Override
     public void execute() {
-      if (move.getAsDouble() > 0) {
+      if (move.getAsDouble() > (0 + margin)) {
           scissorSubsystem.moveUp();
-      } else if (move.getAsDouble() < 0) {
+      } else if (move.getAsDouble() < (0 - margin)) {
           scissorSubsystem.moveDown();
       } else { // No input
           scissorSubsystem.hold();

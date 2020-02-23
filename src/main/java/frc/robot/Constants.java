@@ -19,6 +19,9 @@ public final class Constants {
 
     public static final class MotorConstants {
 
+        // Drive Motor Limit
+        public final static double SPEED_LIMIT = 0.7;
+
         // Initialize left drive motors
         public final static int FRONT_LEFT_DRIVE_MOTOR_PORT = Constants.RoboRIOConstants.PWM_PORT_0;
         public final static int REAR_LEFT_DRIVE_MOTOR_PORT = Constants.RoboRIOConstants.PWM_PORT_1;
@@ -32,8 +35,8 @@ public final class Constants {
         public final static boolean REAR_LEFT_DRIVE_MOTOR_INVERTED = false;
         
         // Invert Right Motors?
-        public final static boolean FRONT_RIGHT_DRIVE_MOTOR_INVERTED = false;
-        public final static boolean REAR_RIGHT_DRIVE_MOTOR_INVERTED = false;
+        public final static boolean FRONT_RIGHT_DRIVE_MOTOR_INVERTED = true;
+        public final static boolean REAR_RIGHT_DRIVE_MOTOR_INVERTED = true;
 
         // Scissor Lift
         public final static int SCISSOR_LIFT_PORT = Constants.RoboRIOConstants.PWM_PORT_4;

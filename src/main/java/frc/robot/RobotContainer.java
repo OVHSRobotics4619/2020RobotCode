@@ -65,17 +65,20 @@ public class RobotContainer {
 
     // A button activates shooter
     new JoystickButton(driverController, Constants.OIConstants.A)
-                      .whenPressed(new InstantCommand(shooterSubsystem::shoot, shooterSubsystem));
+                      .whenPressed(() -> shooterSubsystem.shoot())
+                      .whenReleased(() -> shooterSubsystem.stop());
 
                       //() -> shooterSubsystem.shoot(), shooterSubsystem)
 
     // B button sucks balls
     new JoystickButton(driverController, Constants.OIConstants.B)
-                      .whenPressed(() -> shooterSubsystem.suck(), shooterSubsystem);
+                      .whenPressed(() -> shooterSubsystem.suck())
+                      .whenReleased(() -> shooterSubsystem.stop());
     
     // Y Button Spins Wheel 
     new JoystickButton(driverController, Constants.OIConstants.Y)
-                      .whenPressed(() -> shooterSubsystem.wheelSpin(), shooterSubsystem);
+                      .whenPressed(() -> shooterSubsystem.wheelSpin())
+                      .whenReleased(() -> shooterSubsystem.stop());
     
     // Rs articulate barrel
     barrelAngleSubsystem.setDefaultCommand(
@@ -87,12 +90,18 @@ public class RobotContainer {
 
     
     // LB and RB articulate ScissorLift
-    scissorLiftSubsystem.setDefaultCommand(
-      new ArticulateScissorLift(
-        scissorLiftSubsystem,
-        () -> driverController.getRawAxis(Constants.OIConstants.RIGHT_STICK_Y_AXIS)
-    ));
+      new JoystickButton(driverController, Constants.OIConstants.L_BUMPER)
+                        .whenPressed(() -> scissorLiftSubsystem.moveDown(), scissorLiftSubsystem)
+                        .whenReleased(() -> scissorLiftSubsystem.hold());
 
+      new JoystickButton(driverController, Constants.OIConstants.R_BUMPER)
+                        .whenPressed(() -> scissorLiftSubsystem.moveUp(), scissorLiftSubsystem)
+                        .whenReleased(() -> scissorLiftSubsystem.hold());
+
+    // Start Button for Speed Boost 
+     new JoystickButton(driverController, Button.kStart.value)
+    .whenPressed(() -> driveBaseSubsystem.setMaxOutput(1))
+    .whenReleased(() -> driveBaseSubsystem.setMaxOutput(0.7));
   }
 
 

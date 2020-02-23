@@ -11,6 +11,7 @@ public class ArticulateBarrel extends CommandBase {
     private final BarrelAngle barrelSubsystem;
     private final DoubleSupplier moveDown;
     private final DoubleSupplier moveUp;
+    private final double margin = 0.1;
 
    /**
    * Creates a new ExampleCommand.
@@ -31,12 +32,14 @@ public class ArticulateBarrel extends CommandBase {
 
     @Override
     public void execute() {
-      if (moveUp.getAsDouble() > 0) {
+      if (moveUp.getAsDouble() > (0 + margin)) {
         barrelSubsystem.angleUp();
 
-      } else if (moveDown.getAsDouble() > 0) {
+      } else if (moveDown.getAsDouble() > (0 - margin)) {
           barrelSubsystem.angleDown();
-      } 
+      } else {
+        barrelSubsystem.hold();
+      }
     }
 
     // Called once the command ends or is interrupted.

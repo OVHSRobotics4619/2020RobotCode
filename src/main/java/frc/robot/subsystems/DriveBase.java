@@ -48,6 +48,10 @@ public class DriveBase extends SubsystemBase {
         this.driveTrain.arcadeDrive(speed, rotation, squareInputs);
     }
 
+    public void setMaxOutput(double maxOutput) {
+        driveTrain.setMaxOutput(maxOutput);
+    }
+
 
     @Override
     public void periodic() {
