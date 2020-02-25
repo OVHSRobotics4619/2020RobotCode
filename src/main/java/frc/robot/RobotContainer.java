@@ -80,13 +80,24 @@ public class RobotContainer {
                       .whenPressed(() -> shooterSubsystem.wheelSpin())
                       .whenReleased(() -> shooterSubsystem.stop());
     
-    // Rs articulate barrel
+    // Triggers articulate barrel
+    /*
     barrelAngleSubsystem.setDefaultCommand(
       new ArticulateBarrel(
         barrelAngleSubsystem,
         () -> driverController.getRawAxis(Constants.OIConstants.LEFT_TRIGGER),
         () -> driverController.getRawAxis(Constants.OIConstants.RIGHT_TRIGGER)
     ));
+    */
+
+    // Start and Back Control the Angle
+    new JoystickButton(driverController, Constants.OIConstants.BACK)
+                      .whenPressed(() -> barrelAngleSubsystem.angleDown())
+                      .whenReleased(() -> barrelAngleSubsystem.hold());
+
+    new JoystickButton(driverController, Constants.OIConstants.START)
+                      .whenPressed(() -> barrelAngleSubsystem.angleUp())
+                      .whenReleased(() -> barrelAngleSubsystem.hold());
 
     
     // LB and RB articulate ScissorLift
@@ -99,7 +110,7 @@ public class RobotContainer {
                         .whenReleased(() -> scissorLiftSubsystem.hold());
 
     // Start Button for Speed Boost 
-     new JoystickButton(driverController, Button.kStart.value)
+     new JoystickButton(driverController, Constants.OIConstants.X)
     .whenPressed(() -> driveBaseSubsystem.setMaxOutput(1))
     .whenReleased(() -> driveBaseSubsystem.setMaxOutput(0.7));
   }

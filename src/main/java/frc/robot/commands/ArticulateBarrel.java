@@ -11,7 +11,7 @@ public class ArticulateBarrel extends CommandBase {
     private final BarrelAngle barrelSubsystem;
     private final DoubleSupplier moveDown;
     private final DoubleSupplier moveUp;
-    private final double margin = 0.1;
+    private final double margin = 0.3;
 
    /**
    * Creates a new ExampleCommand.
