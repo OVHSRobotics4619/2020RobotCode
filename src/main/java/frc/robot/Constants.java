@@ -39,15 +39,15 @@ public final class Constants {
         public final static boolean REAR_RIGHT_DRIVE_MOTOR_INVERTED = true;
 
         // Elevator
-        public final static int ELEVATOR_PORT = Constants.RoboRIOConstants.PWM_PORT_4;
+        public final static int ELEVATOR_PORT = Constants.RoboRIOConstants.PWM_PORT_9;
         public final static boolean ELEVATOR_INVERTED = false;
 
         // Ratchet
-        public final static int RATCHET_PORT = Constants.RoboRIOConstants.PWM_PORT_9;
+        public final static int RATCHET_PORT = Constants.RoboRIOConstants.PWM_PORT_6;
         public final static boolean RATCHET_INVERTED = false;
         
         // Ball Feed
-        public final static int BALL_FEED_PORT = Constants.RoboRIOConstants.PWM_PORT_5;
+        public final static int BALL_FEED_PORT = Constants.RoboRIOConstants.PWM_PORT_4;
         public final static boolean BALL_FEED_INVERTED = false;
 
         // Shooter Angle
@@ -55,7 +55,7 @@ public final class Constants {
         public final static boolean ANGLE_INVERTED = false;
 
         // Shooter Wheels
-        public final static int LEFT_SHOOTER_PORT = Constants.RoboRIOConstants.PWM_PORT_6;
+        public final static int LEFT_SHOOTER_PORT = Constants.RoboRIOConstants.PWM_PORT_5;
         public final static int RIGHT_SHOOTER_PORT = Constants.RoboRIOConstants.PWM_PORT_7;
 
         public final static boolean LEFT_SHOOTER_INVERTED = false;
