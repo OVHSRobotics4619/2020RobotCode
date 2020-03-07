@@ -106,5 +106,11 @@ public final class Constants {
         public final static int DIO_PORT_7 = 7;
         public final static int DIO_PORT_8 = 8;
         public final static int DIO_PORT_9 = 9;
+
+        // Analog Ports
+        public final static int ANALOG_PORT_0 = 0;
+        public final static int ANALOG_PORT_1 = 1;
+        public final static int ANALOG_PORT_2 = 2;
+        public final static int ANALOG_PORT_3 = 3;         
     }   
 }

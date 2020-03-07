@@ -13,15 +13,15 @@ public class BarrelAngle extends SubsystemBase {
   }
 
   public void angleUp() {
-    motor.set(0.7);
+    motor.set(1.0);
   }
 
   public void angleDown() {
-    motor.set(-0.7);
+    motor.set(-1.0);
   }
 
   public void hold() {
-    motor.set(0.0);
+    motor.stopMotor();
   }
 
   @Override

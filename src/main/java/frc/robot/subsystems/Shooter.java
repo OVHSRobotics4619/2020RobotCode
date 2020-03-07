@@ -10,7 +10,7 @@ public class Shooter extends SubsystemBase {
   private VictorSP rightMotor;
   private VictorSP ballFeedMotor;
   private double shooterSpeed = 0.6;
-  private double beltSpeed = 0.2;
+  private double beltSpeed = 0.4;
 
   public Shooter() {
     
@@ -41,7 +41,8 @@ public class Shooter extends SubsystemBase {
   }
 
   public void wheelSpin() {
-    rightMotor.set(0.1);
+    rightMotor.set(-0.5);
+    leftMotor.set(-0.5);
   }
 
   public void stop() {
