@@ -3,22 +3,21 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.ScissorLift;
+import frc.robot.subsystems.Elevator;
 
-public class ArticulateScissorLift extends CommandBase {
+public class MoveElevator extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     
-    private final ScissorLift scissorSubsystem;
+    private final Elevator elevatorSubsystem;
     private final DoubleSupplier move;
-    private final double margin = 0.1; 
 
    /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ArticulateScissorLift(ScissorLift subsystem, DoubleSupplier upDown) {
-    scissorSubsystem = subsystem;
+  public MoveElevator(Elevator subsystem, DoubleSupplier upDown) {
+    elevatorSubsystem = subsystem;
     move = upDown;
     addRequirements(subsystem);
   }
@@ -30,13 +29,6 @@ public class ArticulateScissorLift extends CommandBase {
 
     @Override
     public void execute() {
-      if (move.getAsDouble() > (0 + margin)) {
-          scissorSubsystem.moveUp();
-      } else if (move.getAsDouble() < (0 - margin)) {
-          scissorSubsystem.moveDown();
-      } else { // No input
-          scissorSubsystem.hold();
-      }
     }
 
     // Called once the command ends or is interrupted.

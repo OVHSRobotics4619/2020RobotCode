@@ -31,7 +31,7 @@ public class RobotContainer {
   // Define Subsystems
   //private final BarrelAngle barrelAngleSubsystem = new BarrelAngle();
   private final DriveBase driveBaseSubsystem = new DriveBase();
-  private final ScissorLift scissorLiftSubsystem = new ScissorLift();
+  private final Elevator elevatorSubsystem = new Elevator();
   private final Shooter shooterSubsystem = new Shooter();
   private final BarrelAngle barrelAngleSubsystem = new BarrelAngle();
 
@@ -91,23 +91,28 @@ public class RobotContainer {
     */
 
     // Start and Back Control the Angle
-    new JoystickButton(driverController, Constants.OIConstants.BACK)
+    /*new JoystickButton(driverController, Constants.OIConstants.BACK)
                       .whenPressed(() -> barrelAngleSubsystem.angleDown())
                       .whenReleased(() -> barrelAngleSubsystem.hold());
 
     new JoystickButton(driverController, Constants.OIConstants.START)
                       .whenPressed(() -> barrelAngleSubsystem.angleUp())
-                      .whenReleased(() -> barrelAngleSubsystem.hold());
+                      .whenReleased(() -> barrelAngleSubsystem.hold());*/
+    
+    // Right stick y axis controls the angle
+    new ArticulateBarrel(barrelAngleSubsystem,
+      () -> driverController.getRawAxis(Constants.OIConstants.RIGHT_STICK_Y_AXIS)
+      );
 
     
-    // LB and RB articulate ScissorLift
+    // LB and RB move elevator
       new JoystickButton(driverController, Constants.OIConstants.L_BUMPER)
-                        .whenPressed(() -> scissorLiftSubsystem.moveDown(), scissorLiftSubsystem)
-                        .whenReleased(() -> scissorLiftSubsystem.hold());
+                        .whenPressed(() -> elevatorSubsystem.moveDown(), elevatorSubsystem)
+                        .whenReleased(() -> elevatorSubsystem.hold());
 
       new JoystickButton(driverController, Constants.OIConstants.R_BUMPER)
-                        .whenPressed(() -> scissorLiftSubsystem.moveUp(), scissorLiftSubsystem)
-                        .whenReleased(() -> scissorLiftSubsystem.hold());
+                        .whenPressed(() -> elevatorSubsystem.moveUp(), elevatorSubsystem)
+                        .whenReleased(() -> elevatorSubsystem.hold());
 
     // Start Button for Speed Boost 
      new JoystickButton(driverController, Constants.OIConstants.X)

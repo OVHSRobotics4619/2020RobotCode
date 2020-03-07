@@ -9,19 +9,16 @@ public class ArticulateBarrel extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     
     private final BarrelAngle barrelSubsystem;
-    private final DoubleSupplier moveDown;
-    private final DoubleSupplier moveUp;
-    private final double margin = 0.3;
+    private final DoubleSupplier move;
 
    /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ArticulateBarrel(BarrelAngle subsystem, DoubleSupplier down, DoubleSupplier up) {
+  public ArticulateBarrel(BarrelAngle subsystem, DoubleSupplier input) {
     barrelSubsystem = subsystem;
-    moveDown = down;
-    moveUp = up;
+    move = input;
     addRequirements(subsystem);
   }
 
@@ -32,11 +29,12 @@ public class ArticulateBarrel extends CommandBase {
 
     @Override
     public void execute() {
-      if (moveUp.getAsDouble() > (0 + margin)) {
+      if (move.getAsDouble() > 0) {
         barrelSubsystem.angleUp();
 
-      } else if (moveDown.getAsDouble() > (0 - margin)) {
-          barrelSubsystem.angleDown();
+      } else if (move.getAsDouble() < 0) {
+        barrelSubsystem.angleDown();
+
       } else {
         barrelSubsystem.hold();
       }

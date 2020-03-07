@@ -2,15 +2,17 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+//import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.VictorSP;
 
 public class Shooter extends SubsystemBase {
 
   private VictorSP leftMotor;
   private VictorSP rightMotor;
-  private VictorSP ballFeedMotor;
+  private Spark ballFeedMotor;
   private double shooterSpeed = 0.6;
-  private double beltSpeed = 0.4;
+  private double beltSpeed = 0.2;
 
   public Shooter() {
     
@@ -23,7 +25,7 @@ public class Shooter extends SubsystemBase {
     this.rightMotor.setInverted(Constants.MotorConstants.RIGHT_SHOOTER_INVERTED);
 
     // Initialize Ball Feed Motor
-    this.ballFeedMotor = new VictorSP(Constants.MotorConstants.BALL_FEED_PORT);
+    this.ballFeedMotor = new Spark(Constants.MotorConstants.BALL_FEED_PORT);
     this.ballFeedMotor.setInverted(Constants.MotorConstants.BALL_FEED_INVERTED);
 
   }

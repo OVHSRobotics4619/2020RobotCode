@@ -38,9 +38,13 @@ public final class Constants {
         public final static boolean FRONT_RIGHT_DRIVE_MOTOR_INVERTED = true;
         public final static boolean REAR_RIGHT_DRIVE_MOTOR_INVERTED = true;
 
-        // Scissor Lift
-        public final static int SCISSOR_LIFT_PORT = Constants.RoboRIOConstants.PWM_PORT_4;
-        public final static boolean SCISSOR_LIFT_INVERTED = false;
+        // Elevator
+        public final static int ELEVATOR_PORT = Constants.RoboRIOConstants.PWM_PORT_4;
+        public final static boolean ELEVATOR_INVERTED = false;
+
+        // Ratchet
+        public final static int RATCHET_PORT = Constants.RoboRIOConstants.PWM_PORT_9;
+        public final static boolean RATCHET_INVERTED = false;
         
         // Ball Feed
         public final static int BALL_FEED_PORT = Constants.RoboRIOConstants.PWM_PORT_5;
